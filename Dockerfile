@@ -9,5 +9,12 @@ RUN bundle install
 
 COPY watcher.sh /
 
+RUN echo '{ \
+  "httpPort": 4000, \
+  "configPath": "/srv/ezmaster-jekyll/ezmaster-site/_config.yml", \
+  "configType": "txt", \
+  "dataPath": "/srv/ezmaster-jekyll/ezmaster-site/" \
+}' > /etc/ezmaster.json
+
 COPY docker-entrypoint.sh /
 CMD [ "/docker-entrypoint.sh" ]
