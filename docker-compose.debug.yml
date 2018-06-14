@@ -1,0 +1,17 @@
+version: '3'
+services:
+    ezmaster-jekyll:
+        container_name: ezmaster-jekyll
+        build:
+            context: .
+            args:
+                - http_proxy
+                - https_proxy
+        image: inistcnrs/ezmaster-jekyll:1.0.0
+        environment:
+            - http_proxy
+            - https_proxy
+        ports:
+            - "4000:4000"
+        volumes:
+            - ./ezmaster-site:/srv/ezmaster-jekyll/ezmaster-site

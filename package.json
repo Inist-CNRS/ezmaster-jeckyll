@@ -1,0 +1,23 @@
+{
+  "name": "ezmaster-jekyll",
+  "version": "1.0.0",
+  "description": "Jekyll website into ezmaster",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "insertversion:readme": "sed -i \"s#\\(ezmaster-jekyll:\\)\\([\\.a-z0-9]\\+\\)#\\1${npm_package_version}#g\" README.md",
+    "insertversion:makefile": "sed -i \"s#\\(ezmaster-jekyll:\\)\\([\\.a-z0-9]\\+\\)#\\1${npm_package_version}#g\" Makefile",
+    "insertversion:docker": "sed -i \"s#\\(ezmaster-jekyll:\\)\\([\\.a-z0-9]\\+\\)#\\1${npm_package_version}#g\" docker-compose*.yml",
+    "version": "npm run insertversion:readme && npm run insertversion:makefile && npm run insertversion:docker && git add README.md Makefile docker-compose.debug.yml",
+    "postversion": "git push && git push --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Inist-CNRS/ezmaster-jekyll.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "https://github.com/Inist-CNRS/ezmaster-jekyll.git#readme"
+}
